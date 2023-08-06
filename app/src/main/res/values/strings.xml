@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyStore</string>
+    <string name="app_name">Bookshop</string>
     <string name="contacts_text">Контакты</string>
     <string name="about_text">О нас</string>
     <string name="main_menu_text">Главная</string>
