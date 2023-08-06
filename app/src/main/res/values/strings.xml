@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">MyStore</string>
+    <string name="contacts_text">Контакты</string>
+    <string name="about_text">О нас</string>
+    <string name="main_menu_text">Главная</string>
+    <string name="name_tag">Bookshop 58</string>
+    <string name="category_icon">Icons</string>
+    <string name="categoryTitle">Художественная литература</string>
+    <string name="noveltyCategory">Новинки</string>
+    <string name="buyButtonText">Купить</string>
+    <string name="cart">Корзина</string>
+    <string name="catalog">Каталог</string>
+    <string name="about_us">Это текст для раздела (О нас) :)</string>
+    <string name="contacts">Это текст для раздела (Контакты) :)</string>
+    <string name="cart_add">Товар добавлен в корзину</string>
+    <string name="cart_add_error">Этот товар уже есть в корзине</string>
+    <string name="cart_amount_items">Количество товаров: </string>
+    <string name="cart_check">Итого: </string>
+    <string name="cart_amount_null">0</string>
+    <string name="cart_check_null">0 ₽</string>
+    <string name="phoneNumberHint">Введите номер телефона</string>
+    <string name="passwordHint">Придумайте пароль</string>
+    <string name="loginHint">Придумайте логин</string>
+    <string name="emailHint">Введите e-mail</string>
+    <string name="passwordSignHint">Введите пароль</string>
+    <string name="btnSign">Войти</string>
+    <string name="btnReg">Зарегистрироваться</string>
+    <string name="negativeButtonText">Назад</string>
+    <string name="positiveButtonText">Далее</string>
+    <string name="email_error">Введите вашу почту</string>
+    <string name="password_error">Введите пароль более 5 символов</string>
+    <string name="login_error">Введите логин</string>
+    <string name="phone_number_error">Введите номер телефона</string>
+    <string name="positive_user_add">Вы зарегистрированы</string>
+    <string name="auth_error">Введены неверные данные</string>
+    <string name="profile">Профиль</string>
+    <string name="succesfully_auth">Вы вошли в аккаунт</string>
+    <string name="home">Главная</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not_sign_error">Необходимо авторизоваться, чтобы совершать покупки</string>
+    <string name="buy_success">Активность покупки удачно сработала</string>
+    <string name="search">Поиск</string>
+</resources>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/signRegLayout"
+    tools:context=".SignRegActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/appName"
+            android:textSize="40sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_thin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_tag">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="220dp"
+        android:layout_marginStart="50dp"
+        android:background="@color/white"
+        android:layout_marginEnd="50dp">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailField"
+            android:hint="@string/emailHint"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_singleLineEllipsis="true">
+
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordField"
+            android:hint="@string/passwordSignHint"
+            android:inputType="textPassword"
+            android:text=""
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_singleLineEllipsis="true">
+
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="450dp"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <ImageButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/name_tag"
+            app:srcCompat="@drawable/ic_button_sign_in" />
+
+        <ImageButton
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/name_tag"
+            app:srcCompat="@drawable/ic_button_reg" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="58dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:contentDescription="@string/name_tag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_home_black" />
+
+
+</RelativeLayout>

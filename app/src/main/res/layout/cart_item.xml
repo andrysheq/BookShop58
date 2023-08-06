@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/noveltyImage"
+            android:layout_width="77dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:contentDescription="kimetsunoyaiba"
+            android:scaleType="fitXY"
+            android:transitionName="noveltyImage"
+            app:srcCompat="@drawable/test_image" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/noveltyTitle"
+                android:layout_width="179dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat"
+                android:maxLines="2"
+                android:text="Истребитель демонов"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/noveltyWriter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="27dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_extralight"
+                android:text="Коёхару Готогэ"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/noveltyPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_extralight"
+                android:text="689 ₽"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/minusButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="70dp"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_cart_minus" />
+
+            <TextView
+                android:id="@+id/bookAmount"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:contentDescription="@string/name_tag"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/minusButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/plusButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="70dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/name_tag"
+                app:layout_constraintStart_toEndOf="@+id/bookAmount"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_cart_plus" />
+
+            <ImageButton
+                android:id="@+id/btn_delete_from_cart"
+                android:layout_width="39dp"
+                android:layout_height="25dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/bookAmount"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_shape" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/bottom_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:srcCompat="@drawable/ic_rectangle_415" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

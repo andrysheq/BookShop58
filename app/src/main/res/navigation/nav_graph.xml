@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menu_home">
+
+    <fragment
+        android:id="@+id/menu_home"
+        android:name="com.example.mystore.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_menu_home_to_book_page"
+            app:destination="@id/book_page" />
+        <action
+            android:id="@+id/action_menu_home_to_search_fragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menu_cart"
+        android:name="com.example.mystore.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_menu_cart_to_book_page"
+            app:destination="@id/book_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/menu_catalog"
+        android:name="com.example.mystore.CatalogFragment"
+        android:label="fragment_catalog"
+        tools:layout="@layout/fragment_catalog" >
+        <action
+            android:id="@+id/action_menu_catalog_to_catalog_books_fragment"
+            app:destination="@id/catalogBooksFragment" />
+        <action
+            android:id="@+id/action_menu_catalog_to_book_page"
+            app:destination="@id/book_page" />
+        <action
+            android:id="@+id/action_menu_catalog_to_search_fragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menu_profile"
+        android:name="com.example.mystore.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_menu_profile_to_search_fragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/book_page"
+        android:name="com.example.mystore.BookPageFragment"
+        android:label="fragment_book_page"
+        tools:layout="@layout/fragment_book_page" >
+        <action
+            android:id="@+id/action_book_page_to_menu_home"
+            app:destination="@id/menu_home" />
+        <action
+            android:id="@+id/action_book_page_to_menu_cart"
+            app:destination="@id/menu_cart" />
+        <action
+            android:id="@+id/action_book_page_to_catalog_books_fragment"
+            app:destination="@id/catalogBooksFragment" />
+        <action
+            android:id="@+id/action_book_page_to_menu_catalog"
+            app:destination="@id/menu_catalog" />
+        <action
+            android:id="@+id/action_book_page_to_search_fragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/catalogBooksFragment"
+        android:name="com.example.mystore.CatalogBooksFragment"
+        android:label="fragment_catalog_books"
+        tools:layout="@layout/fragment_catalog_books" >
+        <action
+            android:id="@+id/action_catalog_books_fragment_to_menu_catalog"
+            app:destination="@id/menu_catalog" />
+        <action
+            android:id="@+id/action_catalog_books_fragment_to_book_page"
+            app:destination="@id/book_page" />
+        <action
+            android:id="@+id/action_catalog_books_fragment_to_search_fragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.mystore.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_fragment_to_book_page"
+            app:destination="@id/book_page" />
+        <action
+            android:id="@+id/action_search_fragment_to_menu_profile"
+            app:destination="@id/menu_profile" />
+        <action
+            android:id="@+id/action_search_fragment_to_menu_home"
+            app:destination="@id/menu_home" />
+        <action
+            android:id="@+id/action_search_fragment_to_menu_catalog"
+            app:destination="@id/menu_catalog" />
+        <action
+            android:id="@+id/action_searchFragment_to_catalogBooksFragment"
+            app:destination="@id/catalogBooksFragment" />
+    </fragment>
+</navigation>
