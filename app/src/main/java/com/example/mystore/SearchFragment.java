@@ -1,9 +1,7 @@
 package com.example.mystore;
 
 import static com.example.mystore.MainActivity.fullBooksList;
-import static com.example.mystore.Order.cart;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,19 +16,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.mystore.adapter.CatalogFullBooksAdapter;
 import com.example.mystore.adapter.SearchAdapter;
 import com.example.mystore.model.Book;
-import com.example.mystore.model.BookInCart;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -28,7 +28,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/montserrat_thin"
-            android:text="@string/noveltyCategory"
+            android:text="@string/novelties"
             android:textColor="@color/black"
             android:textSize="30dp"
             app:layout_constraintStart_toStartOf="parent"

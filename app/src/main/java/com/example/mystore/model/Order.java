@@ -1,4 +1,4 @@
-package com.example.mystore;
+package com.example.mystore.model;
 
 import com.example.mystore.model.Book;
 import com.example.mystore.model.BookInCart;

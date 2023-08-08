@@ -5,17 +5,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.mystore.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,9 +29,11 @@ public class SignRegActivity extends AppCompatActivity {
 
     ImageButton signIn, register, mainMenu;
     FirebaseAuth auth;
+    TextView forgotPassword;
     static FirebaseDatabase database;
     static DatabaseReference users;
-    MaterialEditText email, password;
+    String email;
+    MaterialEditText password;
     RelativeLayout root;
     ConstraintLayout home;
 
@@ -47,8 +47,7 @@ public class SignRegActivity extends AppCompatActivity {
         signIn = findViewById(R.id.btnSignIn);
         register = findViewById(R.id.btnRegister);
         mainMenu = findViewById(R.id.btn_back);
-
-
+        forgotPassword = findViewById(R.id.tvForgotPassword);
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         users = database.getReference("Users");
@@ -59,6 +58,13 @@ public class SignRegActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showRegisterWindow();
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showForgotPasswordDialog();
             }
         });
 
@@ -78,28 +84,62 @@ public class SignRegActivity extends AppCompatActivity {
 
     }
 
+    private void showForgotPasswordDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Восстановить пароль");
+        dialog.setMessage("Мы отправим ссылку для восстановления пароля на ваш email");
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View reset_password_dialog = inflater.inflate(R.layout.reset_password_dialog,null);
+        dialog.setView(reset_password_dialog);
+
+        MaterialEditText edEmail = reset_password_dialog.findViewById(R.id.edResetPassword);
+//        Button send = reset_password_dialog.findViewById(R.id.buttonConfirmResetPassword);
+//        Button cancel = reset_password_dialog.findViewById(R.id.buttonCancelResetPassword);
+
+        dialog.setNegativeButton(R.string.previous, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        dialog.setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                email = edEmail.getText().toString();
+                if(TextUtils.isEmpty(email)){
+                    Snackbar.make(root,R.string.email_error,Snackbar.LENGTH_LONG).show();
+                }else{
+                    resetPassword();
+                }
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void resetPassword(){
+        auth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Snackbar.make(root,R.string.password_reset_successful,Snackbar.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Snackbar.make(root,R.string.auth_error,Snackbar.LENGTH_LONG).show();
+            }
+        });
+    }
+
     private void openMainMenu() {
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
     private void showSignInWindow() {
-//        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-//        dialog.setTitle("Войти");
-//        dialog.setMessage("Введите ваши данные");
-//        LayoutInflater inflater = LayoutInflater.from(this);
-//        View sign_in_window = inflater.inflate(R.layout.sign_in_window,null);
-//        dialog.setView(sign_in_window);
-
         MaterialEditText email = findViewById(R.id.emailField);
         MaterialEditText password = findViewById(R.id.passwordField);
-
-//        dialog.setNegativeButton(R.string.negativeButtonText, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.dismiss();
-//            }
-//        });
 
         if(TextUtils.isEmpty(email.getText().toString())){
             Snackbar.make(root,R.string.email_error,Snackbar.LENGTH_LONG).show();
@@ -132,22 +172,22 @@ public class SignRegActivity extends AppCompatActivity {
         View register_window = inflater.inflate(R.layout.register_window,null);
         dialog.setView(register_window);
 
-        MaterialEditText email = register_window.findViewById(R.id.emailField);
+        MaterialEditText edEmail = register_window.findViewById(R.id.emailField);
         MaterialEditText password = register_window.findViewById(R.id.passwordField);
         MaterialEditText login = register_window.findViewById(R.id.loginField);
         MaterialEditText phoneNumber = register_window.findViewById(R.id.phoneNumberField);
 
-        dialog.setNegativeButton(R.string.negativeButtonText, new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(R.string.previous, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
             }
         });
 
-        dialog.setPositiveButton(R.string.positiveButtonText, new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if(TextUtils.isEmpty(email.getText().toString())){
+                if(TextUtils.isEmpty(edEmail.getText().toString())){
                     Snackbar.make(root,R.string.email_error,Snackbar.LENGTH_LONG).show();
                     return;
                 }
@@ -164,14 +204,14 @@ public class SignRegActivity extends AppCompatActivity {
                     return;
                 }
 
-                auth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                auth.createUserWithEmailAndPassword(edEmail.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        User user = new User(login.getText().toString(),phoneNumber.getText().toString(),password.getText().toString(),email.getText().toString());
+                        User user = new User(login.getText().toString(),phoneNumber.getText().toString(),edEmail.getText().toString());
                         users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Snackbar.make(root, R.string.positive_user_add,Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(root, R.string.user_added,Snackbar.LENGTH_LONG).show();
                             }
                         });
                     }

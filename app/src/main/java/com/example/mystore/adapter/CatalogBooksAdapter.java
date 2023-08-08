@@ -1,15 +1,11 @@
 package com.example.mystore.adapter;
 
 import static com.example.mystore.MainActivity.fullBooksList;
-import static com.example.mystore.Order.cart;
+import static com.example.mystore.model.Order.cart;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

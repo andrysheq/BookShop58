@@ -1,8 +1,7 @@
 package com.example.mystore;
 
-import static com.example.mystore.CartFragment.cartAdapter;
 import static com.example.mystore.HomeFragment.noveltyAdapter;
-import static com.example.mystore.Order.cart;
+import static com.example.mystore.model.Order.cart;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.navigation.ui.AppBarConfiguration;
 
@@ -20,7 +18,6 @@ import com.example.mystore.databinding.ActivityMainBinding;
 import com.example.mystore.model.BookInCart;
 import com.example.mystore.model.Category;
 import com.example.mystore.model.Book;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -169,10 +166,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    public void openSignRegActivity(){
-        startActivity(new Intent(this,SignRegActivity.class));
-        finish();
     }
 }
