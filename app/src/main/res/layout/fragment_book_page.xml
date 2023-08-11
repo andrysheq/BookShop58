@@ -66,12 +66,12 @@
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="30dp"
         android:background="@color/white"
         android:contentDescription="@string/name_tag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookPageTitle"
+        app:layout_constraintTop_toBottomOf="@+id/reviews_button"
         app:srcCompat="@drawable/ic_button_buy_book_page" />
 
     <ImageButton
@@ -84,5 +84,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back" />
+
+    <ImageButton
+        android:id="@+id/reviews_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_profile_item_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookPagePrice" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="Отзывы"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/reviews_button"
+        app:layout_constraintEnd_toEndOf="@+id/reviews_button"
+        app:layout_constraintStart_toStartOf="@+id/reviews_button"
+        app:layout_constraintTop_toTopOf="@+id/reviews_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

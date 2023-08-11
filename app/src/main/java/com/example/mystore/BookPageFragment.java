@@ -1,7 +1,7 @@
 package com.example.mystore;
 
 import static com.example.mystore.MainActivity.fullBooksList;
-import static com.example.mystore.model.Order.cart;
+import static com.example.mystore.model.Cart.cart;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class BookPageFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     ImageButton btnBack;
+    ImageButton btnReviews;
     ImageButton btnAddToCart;
 
     // TODO: Rename and change types of parameters
@@ -93,35 +95,27 @@ public class BookPageFragment extends Fragment {
         TextView bookWriter = view.findViewById(R.id.bookPageWriter);
         TextView bookPrice = view.findViewById(R.id.bookPagePrice);
 
+
+
         String url = getArguments().getString("image");
         Glide.with(getContext()).load(url).into(bookImage);
-        //bookImage.setImageResource(getArguments().getInt("image",0));
         bookWriter.setText(getArguments().getString("writer"));
         bookPrice.setText(getArguments().getString("price"));
         bookTitle.setText(getArguments().getString("title"));
+
+        btnReviews = view.findViewById(R.id.reviews_button);
+        btnReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_book_page_to_reviews_fragment);
+            }
+        });
 
         btnBack = view.findViewById(R.id.btn_back_book_page);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String key = getArguments().getString("destinationName");
-                switch (key){
-                    case "Home":
-                        Navigation.findNavController(view).navigate(R.id.action_book_page_to_menu_home);
-                        break;
-                    case "Search":
-                        Navigation.findNavController(view).navigate(R.id.action_book_page_to_search_fragment);
-                        break;
-                    case "Cart":
-                        Navigation.findNavController(view).navigate(R.id.action_book_page_to_menu_cart);
-                        break;
-                    case "CatalogBooks":
-                        Navigation.findNavController(view).navigate(R.id.action_book_page_to_catalog_books_fragment);
-                        break;
-                    case "Catalog":
-                        Navigation.findNavController(view).navigate(R.id.action_book_page_to_menu_catalog);
-                        break;
-                }
+                Navigation.findNavController(view).popBackStack();
             }
         });
 

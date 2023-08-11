@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_menu_profile_to_search_fragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_menu_profile_to_orders_fragment"
+            app:destination="@id/ordersFragment" />
     </fragment>
     <fragment
         android:id="@+id/book_page"
@@ -56,20 +59,8 @@
         android:label="fragment_book_page"
         tools:layout="@layout/fragment_book_page" >
         <action
-            android:id="@+id/action_book_page_to_menu_home"
-            app:destination="@id/menu_home" />
-        <action
-            android:id="@+id/action_book_page_to_menu_cart"
-            app:destination="@id/menu_cart" />
-        <action
-            android:id="@+id/action_book_page_to_catalog_books_fragment"
-            app:destination="@id/catalogBooksFragment" />
-        <action
-            android:id="@+id/action_book_page_to_menu_catalog"
-            app:destination="@id/menu_catalog" />
-        <action
-            android:id="@+id/action_book_page_to_search_fragment"
-            app:destination="@id/searchFragment" />
+            android:id="@+id/action_book_page_to_reviews_fragment"
+            app:destination="@id/reviewsFragment" />
     </fragment>
     <fragment
         android:id="@+id/catalogBooksFragment"
@@ -94,17 +85,23 @@
         <action
             android:id="@+id/action_search_fragment_to_book_page"
             app:destination="@id/book_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.mystore.OrdersFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" >
         <action
-            android:id="@+id/action_search_fragment_to_menu_profile"
-            app:destination="@id/menu_profile" />
+            android:id="@+id/action_orders_fragment_to_search_fragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="com.example.mystore.ReviewsFragment"
+        android:label="fragment_reviews"
+        tools:layout="@layout/fragment_reviews" >
         <action
-            android:id="@+id/action_search_fragment_to_menu_home"
-            app:destination="@id/menu_home" />
-        <action
-            android:id="@+id/action_search_fragment_to_menu_catalog"
-            app:destination="@id/menu_catalog" />
-        <action
-            android:id="@+id/action_searchFragment_to_catalogBooksFragment"
-            app:destination="@id/catalogBooksFragment" />
+            android:id="@+id/action_reviews_fragment_to_search_fragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 </navigation>

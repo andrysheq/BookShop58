@@ -56,6 +56,7 @@ public class NoveltyAdapter extends RecyclerView.Adapter<NoveltyAdapter.NoveltyV
                 bundle.putInt("bookId", novelties.get(position).getId());
                 bundle.putString("destinationName","Home");
                 Navigation.findNavController(view).navigate(R.id.action_menu_home_to_book_page,bundle);
+
             }
         });
     }

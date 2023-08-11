@@ -101,9 +101,6 @@ public class CatalogFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle bundle = new Bundle();
-//                bundle.putString("destinationName","Catalog");
-//                Navigation.findNavController(view).navigate(R.id.action_menu_catalog_to_search_fragment,bundle);
                 Navigation.findNavController(view).navigate(R.id.action_menu_catalog_to_search_fragment);
             }
         });

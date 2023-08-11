@@ -1,7 +1,7 @@
 package com.example.mystore.adapter;
 
 import static com.example.mystore.MainActivity.fullBooksList;
-import static com.example.mystore.model.Order.cart;
+import static com.example.mystore.model.Cart.cart;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

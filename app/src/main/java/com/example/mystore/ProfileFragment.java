@@ -1,12 +1,14 @@
 package com.example.mystore;
 
-import static com.example.mystore.model.Order.cart;
+import static com.example.mystore.MainActivity.orders;
+import static com.example.mystore.model.Cart.cart;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -37,8 +39,9 @@ public class ProfileFragment extends Fragment {
     ImageButton signOutBtn;
     TextView userEmail;
     TextView userLogin;
-    TextView userPhone;
+    TextView orderCount;
     ImageButton buttonSearch;
+    CardView myOrders;
     DatabaseReference ref;
     ArrayAdapter<String> adapter;
     ArrayList<String> data;
@@ -75,17 +78,35 @@ public class ProfileFragment extends Fragment {
         signOutBtn = view.findViewById(R.id.button_sign_out);
         userEmail = view.findViewById(R.id.email_user);
         userLogin = view.findViewById(R.id.login_user);
-        userPhone = view.findViewById(R.id.phone_user);
         //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         buttonSearch = view.findViewById(R.id.button_search_profile);
+        myOrders = view.findViewById(R.id.orders_card);
+
+
+        orderCount = myOrders.findViewById(R.id.order_count);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("У вас ");
+        stringBuilder.append(orders.size());
+        if(orders.size()%10==1){
+                stringBuilder.append(" активный заказ");
+        }else if(orders.size()%10>=2 && orders.size()%10<=4){
+            stringBuilder.append(" активных заказа");
+        }else if(orders.size()%10==0 || orders.size()%10>=5 && orders.size()%10<=9){
+            stringBuilder.append(" активных заказов");
+        }
+        orderCount.setText(stringBuilder);
 
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-//                Bundle bundle = new Bundle();
-//                bundle.putString("destinationName","Profile");
-//                Navigation.findNavController(view).navigate(R.id.action_menu_profile_to_search_fragment,bundle);
+            public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_menu_profile_to_search_fragment);
+            }
+        });
+
+        myOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_menu_profile_to_orders_fragment);
             }
         });
 
@@ -93,7 +114,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                //userEmail.setText("");
                 cart.clear();
                 startActivity(new Intent(getContext(),SignRegActivity.class));
             }
@@ -111,8 +131,6 @@ public class ProfileFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String login = snapshot.child("login").getValue().toString();
                     userLogin.setText(login);
-                    String phone = snapshot.child("phone").getValue().toString();
-                    userPhone.setText(phone);
                 }
 
                 @Override

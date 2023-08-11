@@ -93,7 +93,7 @@ public class CatalogBooksFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_catalog_books_fragment_to_menu_catalog);
+                Navigation.findNavController(view).popBackStack();
             }
         });
 

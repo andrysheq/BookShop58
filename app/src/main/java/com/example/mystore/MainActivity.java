@@ -1,7 +1,7 @@
 package com.example.mystore;
 
 import static com.example.mystore.HomeFragment.noveltyAdapter;
-import static com.example.mystore.model.Order.cart;
+import static com.example.mystore.model.Cart.cart;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.navigation.ui.AppBarConfiguration;
@@ -18,6 +17,8 @@ import com.example.mystore.databinding.ActivityMainBinding;
 import com.example.mystore.model.BookInCart;
 import com.example.mystore.model.Category;
 import com.example.mystore.model.Book;
+import com.example.mystore.model.Order;
+import com.example.mystore.model.Review;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,12 +28,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     static ArrayList<Book> books = new ArrayList<>();
+    static ArrayList<Order> orders = new ArrayList<>();
+    static ArrayList<Review> reviews = new ArrayList<>();
     public static ArrayList<Book> fullBooksList = new ArrayList<>();
     static ArrayList<Book> novelties = new ArrayList<>();
     static ArrayList<Category> categories = new ArrayList<>();
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -166,5 +171,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        Order orderExample = new Order("12313","5","12/31/13","300","Завершен");
+        Order orderExample2 = new Order("12313","5","12/31/13","300","Принят");
+        Order orderExample3 = new Order("12313","5","12/31/13","300","В пути");
+        Order orderExample4 = new Order("12313","5","12/31/13","300","Отменен");
+        Order orderExample5 = new Order("12313","5","12/31/13","300","Отменен");
+
+        Collections.addAll(orders, orderExample, orderExample3, orderExample2, orderExample4, orderExample5);
+
+        Review reviewExample = new Review("1",String.valueOf(R.string.review_example),"user1","12/31/13");
+        Review reviewExample2 = new Review("2",String.valueOf(R.string.review_example),"user2","13/31/13");
+        Review reviewExample3 = new Review("3",String.valueOf(R.string.review_example),"user3","14/31/13");
+        Review reviewExample4 = new Review("4",String.valueOf(R.string.review_example),"user4","15/31/13");
+        Review reviewExample5 = new Review("5",String.valueOf(R.string.review_example),"user5","16/31/13");
+
+        Collections.addAll(reviews, reviewExample, reviewExample3, reviewExample2, reviewExample4, reviewExample5);
     }
 }
