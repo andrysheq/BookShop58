@@ -5,12 +5,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -142,12 +144,16 @@ public class SignRegActivity extends AppCompatActivity {
         MaterialEditText password = findViewById(R.id.passwordField);
 
         if(TextUtils.isEmpty(email.getText().toString())){
-            Snackbar.make(root,R.string.email_error,Snackbar.LENGTH_LONG).show();
+            hideKeyboard();
+            email.setError(getString(R.string.email_error));
+            //Snackbar.make(root,R.string.email_error,Snackbar.LENGTH_LONG).show();
             return;
         }
 
         if(password.getText().toString().length()<5){
-            Snackbar.make(root,R.string.password_error,Snackbar.LENGTH_LONG).show();
+            hideKeyboard();
+            password.setError(getString(R.string.password_error));
+            //Snackbar.make(root,R.string.password_error,Snackbar.LENGTH_LONG).show();
             return;
         }
 
@@ -159,6 +165,11 @@ public class SignRegActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                email.clearFocus();
+                password.clearFocus();
+                email.setText(null);
+                password.setText(null);
+                hideKeyboard();
                 Snackbar.make(root,R.string.auth_error,Snackbar.LENGTH_LONG).show();
             }
         });
@@ -187,44 +198,59 @@ public class SignRegActivity extends AppCompatActivity {
         dialog.setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if(TextUtils.isEmpty(edEmail.getText().toString())){
+                //boolean isErr = false;
+                if (TextUtils.isEmpty(edEmail.getText().toString())) {
+                    //hideKeyboard();
                     Snackbar.make(root,R.string.email_error,Snackbar.LENGTH_LONG).show();
                     return;
+                    //edEmail.setError("wtfffff");
+                    //isErr = true;
                 }
-                if(password.getText().toString().length()<5){
+                if (password.getText().toString().length() < 5) {
+                    //hideKeyboard();
                     Snackbar.make(root,R.string.password_error,Snackbar.LENGTH_LONG).show();
                     return;
+                    //password.setError("wtfffff");
+                    //isErr = true;
                 }
-                if(TextUtils.isEmpty(login.getText().toString())){
+                if (TextUtils.isEmpty(login.getText().toString())) {
+//                    hideKeyboard();
                     Snackbar.make(root,R.string.login_error,Snackbar.LENGTH_LONG).show();
                     return;
+                    //login.setError("wtfffff");
+                    //isErr = true;
                 }
-                if(TextUtils.isEmpty(phoneNumber.getText().toString())){
+                if (TextUtils.isEmpty(phoneNumber.getText().toString())) {
+                    //hideKeyboard();
                     Snackbar.make(root,R.string.phone_number_error,Snackbar.LENGTH_LONG).show();
                     return;
+                    //phoneNumber.setError("wtfffff");
+                    //isErr = true;
                 }
-
-                auth.createUserWithEmailAndPassword(edEmail.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                auth.createUserWithEmailAndPassword(edEmail.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        User user = new User(login.getText().toString(),phoneNumber.getText().toString(),edEmail.getText().toString());
+                        User user = new User(login.getText().toString(), phoneNumber.getText().toString(), edEmail.getText().toString());
                         users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Snackbar.make(root, R.string.user_added,Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(root, R.string.user_added, Snackbar.LENGTH_LONG).show();
                             }
                         });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Snackbar.make(root,e.getMessage(),Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(root, e.getMessage(), Snackbar.LENGTH_LONG).show();
                     }
                 });
-
             }
         });
-
         dialog.show();
+    }
+
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
     }
 }

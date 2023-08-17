@@ -22,6 +22,15 @@ import android.widget.TextView;
 
 import com.example.mystore.adapter.CatalogBooksAdapter;
 import com.example.mystore.adapter.OrderAdapter;
+import com.example.mystore.model.Order;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +96,32 @@ public class OrdersFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         btnBack = view.findViewById(R.id.btn_back_catalog_books);
+
+//        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+//            DatabaseReference mDatabaseOrders = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Orders");
+//            mDatabaseOrders.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    if (orders.size() > 0) {
+//                        orders.clear();
+//                    }
+//                    for (DataSnapshot ds : snapshot.getChildren()) {
+//                        String number = (String) ((HashMap<String, Object>) ds.getValue()).get("number");
+//                        String quantity = (String) ((HashMap<String, Object>) ds.getValue()).get("quantity");
+//                        String date = (String) ((HashMap<String, Object>) ds.getValue()).get("date");
+//                        String amount = (String) ((HashMap<String, Object>) ds.getValue()).get("amount");
+//                        String status = (String) ((HashMap<String, Object>) ds.getValue()).get("status");
+//                        Order order = new Order(number, quantity, date, amount, status);
+//                        orders.add(order);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+//        }
 
 
         btnBack.setOnClickListener(new View.OnClickListener() {

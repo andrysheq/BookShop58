@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/headerField"
+            android:hint="@string/header_hint"
+            android:layout_marginTop="20dp"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_singleLineEllipsis="false">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/descriptionField"
+            android:hint="@string/description_hint"
+            android:layout_marginTop="20dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6"
+            android:gravity="top|left"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            app:met_floatingLabel="highlight"
+            app:met_singleLineEllipsis="false">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gradeField"
+            android:hint="@string/grade_hint"
+            android:layout_marginTop="20dp"
+            android:inputType="textPassword"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:met_floatingLabel="highlight"
+            app:met_singleLineEllipsis="true">
+
+        </EditText>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

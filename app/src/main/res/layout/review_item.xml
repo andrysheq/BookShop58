@@ -43,13 +43,26 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/review_text"
+            android:id="@+id/review_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="85dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/header_example"
+            android:textColor="@color/black"
+            android:textSize="16sp"  />
+
+        <TextView
+            android:id="@+id/review_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="130dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/review_example"
             android:textColor="@color/black"

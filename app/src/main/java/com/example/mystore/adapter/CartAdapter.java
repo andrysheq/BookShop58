@@ -114,10 +114,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 Bundle bundle = new Bundle();
                 bundle.putString("title", order.get(position).getTitle());
                 bundle.putString("writer", order.get(position).getWriter());
+                bundle.putString("description", order.get(position).getDescription());
                 bundle.putString("price", String.valueOf(order.get(position).getPrice()) + " ₽");
                 bundle.putString("image", url);
                 bundle.putInt("bookId", order.get(position).getId());
-                bundle.putString("destinationName","Cart");
                 Navigation.findNavController(view).navigate(R.id.action_menu_cart_to_book_page,bundle);
             }
         });

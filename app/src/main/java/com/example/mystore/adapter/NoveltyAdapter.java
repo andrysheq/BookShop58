@@ -51,6 +51,7 @@ public class NoveltyAdapter extends RecyclerView.Adapter<NoveltyAdapter.NoveltyV
                 Bundle bundle = new Bundle();
                 bundle.putString("title", novelties.get(position).getTitle());
                 bundle.putString("writer", novelties.get(position).getWriter());
+                bundle.putString("description", novelties.get(position).getDescription());
                 bundle.putString("price", String.valueOf(novelties.get(position).getPrice()) + " ₽");
                 bundle.putString("image", url);
                 bundle.putInt("bookId", novelties.get(position).getId());

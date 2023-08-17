@@ -2,9 +2,9 @@ package com.example.mystore.model;
 
 public class Book {
     private int id, ageLimit, price, category;
-    private String img,genre,title,writer;
+    private String img,genre,title,writer,description;
 
-    public Book(int id, int ageLimit, int price, String genre, String title, String img, String writer, int category){
+    public Book(int id, int ageLimit, int price, String genre, String title, String img, String writer, int category, String description){
         this.id = id;
         this.ageLimit = ageLimit;
         this.price = price;
@@ -13,6 +13,7 @@ public class Book {
         this.img = img;
         this.writer = writer;
         this.category = category;
+        this.description = description;
     }
 
     public Book(Book book) {
@@ -24,6 +25,7 @@ public class Book {
         this.img = book.getImg();
         this.writer = book.getWriter();
         this.category = book.getCategory();
+        this.description = book.getDescription();
     }
 
     public int getCategory() {
@@ -88,5 +90,13 @@ public class Book {
 
     public String getWriter() {
         return writer;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

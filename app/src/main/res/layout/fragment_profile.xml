@@ -7,11 +7,25 @@
     android:background="@color/white"
     tools:context=".ProfileFragment">
 
+    <ProgressBar
+        android:id="@+id/profileProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/main">
+
+    </ProgressBar>
+
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/profileScrollView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,11 +35,11 @@
                 android:id="@+id/email_user"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
+                android:layout_marginStart="140dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/mail_default"
-                android:textSize="14dp"
                 android:textColor="@color/black"
+                android:textSize="14dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_user" />
 
@@ -33,7 +47,7 @@
                 android:id="@+id/login_user"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
+                android:layout_marginStart="140dp"
                 android:layout_marginTop="45dp"
                 android:text="@string/login_default"
                 android:textColor="@color/black"
@@ -44,8 +58,8 @@
 
             <ImageButton
                 android:id="@+id/button_sign_out"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
@@ -55,8 +69,8 @@
 
             <ImageButton
                 android:id="@+id/button_search_profile"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="20dp"
                 android:background="@color/white"
                 android:src="@drawable/ic_search"
@@ -67,14 +81,14 @@
                 android:id="@+id/imageView2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_search_profile"
                 tools:src="@tools:sample/avatars" />
 
             <LinearLayout
-                android:id="@+id/layout"
+                android:id="@+id/extra_param_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
@@ -123,53 +137,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/order_count_example"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/montserrat"
-                        android:layout_marginTop="43dp"
-                        android:layout_marginStart="20dp"/>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/reviews_card"
-                    android:layout_width="335dp"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_weight="1"
-                    app:cardElevation="10dp"
-                    app:cardUseCompatPadding="false"
-                    app:layout_constraintEnd_toEndOf="@+id/layout"
-                    app:layout_constraintStart_toStartOf="@+id/layout"
-                    app:layout_constraintTop_toTopOf="@+id/layout">
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="301dp"
-                        android:layout_marginTop="23dp"
-                        android:src="@drawable/ic_button_next" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
-                        android:layout_marginStart="20dp"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/montserrat"
-                        android:text="@string/my_reviews_text" />
-
-                    <TextView
-                        android:id="@+id/review_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/review_count_example"
                         android:textSize="12sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/montserrat"

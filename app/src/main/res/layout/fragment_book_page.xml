@@ -7,106 +7,217 @@
     android:background="@color/white"
     tools:context=".BookPageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:id="@+id/bookPageImage"
-        android:layout_width="180dp"
-        android:layout_height="256dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp"
-        android:contentDescription="@string/name_tag"
-        android:scaleType="fitXY"
-        android:transitionName="noveltyImage"
+    <ProgressBar
+        android:id="@+id/bookPageProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/test_image" />
+        android:indeterminate="true"
+        android:indeterminateTint="@color/main">
 
-    <TextView
-        android:id="@+id/bookPageTitle"
+    </ProgressBar>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bookPageScrollView"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Человек бензопила том 12"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookPageImage" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/bookPageWriter"
-        android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/bookPageImage"
+                android:layout_width="180dp"
+                android:layout_height="256dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:contentDescription="@string/name_tag"
+                android:scaleType="fitXY"
+                android:transitionName="noveltyImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/test_image" />
+
+            <TextView
+                android:id="@+id/bookPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Человек бензопила том 12"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bookPageImage" />
+
+            <TextView
+                android:id="@+id/bookPageWriter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_extralight"
+                android:text="Фудзимото Тацуки"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/bookPageTitle"
+                app:layout_constraintTop_toBottomOf="@+id/bookPageTitle" />
+
+            <TextView
+                android:id="@+id/bookPagePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_extralight"
+                android:text="666 ₽"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/bookPageTitle"
+                app:layout_constraintTop_toBottomOf="@+id/bookPageWriter" />
+
+            <ImageButton
+                android:id="@+id/btn_back_book_page"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:contentDescription="@string/name_tag"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_arrow_back" />
+
+            <TextView
+                android:id="@+id/book_reviews_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/not_reviews"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/bookPagePrice" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_star_big"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bookPagePrice" />
+
+            <TextView
+                android:id="@+id/textView74"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+            <TextView
+                android:id="@+id/book_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserrat"
+                android:overScrollMode="never"
+                android:text="@string/description_example"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView74"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/reviews_button"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:src="@drawable/ic_profile_item_back"
+                app:layout_constraintStart_toEndOf="@+id/book_reviews_grade"
+                app:layout_constraintTop_toBottomOf="@+id/bookPagePrice" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:elevation="5dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Отзывы"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/reviews_button"
+                app:layout_constraintStart_toStartOf="@+id/reviews_button"
+                app:layout_constraintTop_toTopOf="@+id/reviews_button" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:elevation="5dp"
+                android:src="@drawable/ic_button_next"
+                app:layout_constraintBottom_toBottomOf="@+id/reviews_button"
+                app:layout_constraintEnd_toEndOf="@+id/reviews_button"
+                app:layout_constraintTop_toTopOf="@+id/reviews_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/montserrat_extralight"
-        android:text="Фудзимото Тацуки"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/bookPageTitle"
-        app:layout_constraintTop_toBottomOf="@+id/bookPageTitle" />
-
-    <TextView
-        android:id="@+id/bookPagePrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/montserrat_extralight"
-        android:text="666 ₽"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/bookPageTitle"
-        app:layout_constraintTop_toBottomOf="@+id/bookPageWriter" />
-
-    <ImageButton
-        android:id="@+id/add_to_cart_button"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:background="@color/white"
-        android:contentDescription="@string/name_tag"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reviews_button"
-        app:srcCompat="@drawable/ic_button_buy_book_page" />
+        app:layout_constraintTop_toBottomOf="@+id/bookPageScrollView">
 
-    <ImageButton
-        android:id="@+id/btn_back_book_page"
-        android:layout_width="58dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        android:contentDescription="@string/name_tag"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back" />
+        <ImageButton
+            android:id="@+id/add_to_cart_button"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="70dp"
+            android:background="@color/white"
+            android:contentDescription="@string/name_tag"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bookPageScrollView"
+            app:srcCompat="@drawable/ic_button_buy_book_page" />
 
-    <ImageButton
-        android:id="@+id/reviews_button"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/white"
-        android:src="@drawable/ic_profile_item_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookPagePrice" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="Отзывы"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/reviews_button"
-        app:layout_constraintEnd_toEndOf="@+id/reviews_button"
-        app:layout_constraintStart_toStartOf="@+id/reviews_button"
-        app:layout_constraintTop_toTopOf="@+id/reviews_button" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

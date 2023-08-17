@@ -65,8 +65,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                 bundle.putString("writer", books.get(position).getWriter());
                 bundle.putString("price", String.valueOf(books.get(position).getPrice()) + " ₽");
                 bundle.putString("image", url);
+                bundle.putString("description", books.get(position).getDescription());
                 bundle.putInt("bookId", books.get(position).getId());
-                bundle.putString("destinationName","Search");
+                //bundle.putString("destinationName","Search");
                 Navigation.findNavController(view).navigate(R.id.action_search_fragment_to_book_page,bundle);
             }
         });
@@ -85,7 +86,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                             return;
                         }
                     }
-                    BookInCart newBook = new BookInCart(fullBooksList.get(id - 1).getId(), fullBooksList.get(id - 1).getAgeLimit(), fullBooksList.get(id - 1).getPrice(), fullBooksList.get(id - 1).getGenre(), fullBooksList.get(id - 1).getTitle(), fullBooksList.get(id - 1).getImg(), fullBooksList.get(id - 1).getWriter(), fullBooksList.get(id - 1).getCategory(), 1);
+                    BookInCart newBook = new BookInCart(fullBooksList.get(id - 1).getId(), fullBooksList.get(id - 1).getAgeLimit(), fullBooksList.get(id - 1).getPrice(), fullBooksList.get(id - 1).getGenre(), fullBooksList.get(id - 1).getTitle(), fullBooksList.get(id - 1).getImg(), fullBooksList.get(id - 1).getWriter(), fullBooksList.get(id - 1).getCategory(), 1, fullBooksList.get(id - 1).getDescription());
                     cart.add(newBook);
                     Toast.makeText(context, R.string.cart_add, Toast.LENGTH_LONG).show();
                 } else {
@@ -95,11 +96,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                             return;
                         }
                     }
-                    BookInCart newBook = new BookInCart(fullBooksList.get(id - 1).getId(), fullBooksList.get(id - 1).getAgeLimit(), fullBooksList.get(id - 1).getPrice(), fullBooksList.get(id - 1).getGenre(), fullBooksList.get(id - 1).getTitle(), fullBooksList.get(id - 1).getImg(), fullBooksList.get(id - 1).getWriter(), fullBooksList.get(id - 1).getCategory(), 1);
+                    BookInCart newBook = new BookInCart(fullBooksList.get(id - 1).getId(), fullBooksList.get(id - 1).getAgeLimit(), fullBooksList.get(id - 1).getPrice(), fullBooksList.get(id - 1).getGenre(), fullBooksList.get(id - 1).getTitle(), fullBooksList.get(id - 1).getImg(), fullBooksList.get(id - 1).getWriter(), fullBooksList.get(id - 1).getCategory(), 1, fullBooksList.get(id - 1).getDescription());
                     Map<String, Object> map = new HashMap<String, Object>();
                     map.put("title", newBook.getTitle());
                     map.put("id", newBook.getId());
                     map.put("genre", newBook.getGenre());
+                    map.put("description", newBook.getDescription());
                     map.put("price", newBook.getPrice());
                     map.put("writer", newBook.getWriter());
                     map.put("img", newBook.getImg());

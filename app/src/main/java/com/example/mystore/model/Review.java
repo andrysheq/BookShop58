@@ -2,15 +2,17 @@ package com.example.mystore.model;
 
 public class Review {
 
-    private String grade, text, user,date;
+    private String grade, text, user,date, idOfItem, header;
 
     public Review(){}
 
-    public Review(String grade, String text, String user, String date) {
+    public Review(String grade, String text, String user, String date, String idOfItem, String header) {
         this.grade = grade;
         this.text = text;
         this.date = date;
         this.user = user;
+        this.idOfItem = idOfItem;
+        this.header = header;
     }
 
     public String getGrade() {
@@ -43,5 +45,21 @@ public class Review {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getIdOfItem() {
+        return idOfItem;
+    }
+
+    public void setIdOfItem(String idOfItem) {
+        this.idOfItem = idOfItem;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
     }
 }

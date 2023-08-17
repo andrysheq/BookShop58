@@ -38,6 +38,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<com.example.mystore.adap
         holder.reviewDate.setText(reviews.get(position).getDate());
         holder.reviewGrade.setText(reviews.get(position).getGrade());
         holder.reviewText.setText(reviews.get(position).getText());
+        holder.reviewHeader.setText(reviews.get(position).getHeader());
     }
 
     @Override
@@ -51,6 +52,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<com.example.mystore.adap
         TextView reviewDate;
         TextView reviewGrade;
         TextView reviewText;
+        TextView reviewHeader;
 
         public ReviewViewHolder(View itemView) {
             super(itemView);
@@ -59,6 +61,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<com.example.mystore.adap
             reviewDate = itemView.findViewById(R.id.review_date);
             reviewGrade = itemView.findViewById(R.id.review_grade);
             reviewText = itemView.findViewById(R.id.review_text);
+            reviewHeader = itemView.findViewById(R.id.review_header);
 
         }
     }
