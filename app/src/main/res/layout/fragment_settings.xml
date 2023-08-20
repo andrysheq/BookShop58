@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ProfileFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SettingsFragment">
 
     <ProgressBar
-        android:id="@+id/profileProgressBar"
+        android:id="@+id/settingsProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,67 +23,22 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/profileScrollView">
+        android:id="@+id/settingsScrollView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/email_user"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/mail_default"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/login_user" />
-
-            <TextView
-                android:id="@+id/login_user"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="45dp"
-                android:text="@string/login_default"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_sign_out" />
-
             <ImageButton
-                android:id="@+id/button_sign_out"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@color/white"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ic_sign_out_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/button_search_profile"
+                android:id="@+id/btn_back_settings"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/white"
-                android:src="@drawable/ic_search"
+                android:src="@drawable/ic_baseline_arrow_back"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/button_sign_out" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_search_profile"
-                tools:src="@tools:sample/avatars" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/extra_param_layout"
@@ -94,10 +49,10 @@
         "
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email_user">
+                app:layout_constraintTop_toBottomOf="@+id/btn_back_settings">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/orders_card"
+                    android:id="@+id/login_change_card"
                     android:layout_width="335dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="30dp"
@@ -116,7 +71,7 @@
                         android:layout_weight="1"
                         android:layout_marginStart="301dp"
                         android:layout_marginTop="23dp"
-                        android:src="@drawable/ic_button_next" />
+                        android:src="@drawable/ic_baseline_border_color_24" />
 
                     <TextView
                         android:id="@+id/textView3"
@@ -124,37 +79,36 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="13dp"
                         android:layout_marginStart="20dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/gray"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/login" />
+
+                    <TextView
+                        android:id="@+id/login_settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_example"
                         android:textSize="18sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/montserrat"
-                        android:text="@string/order_text" />
-
-                    <TextView
-                        android:id="@+id/order_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/order_count_example"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/montserrat"
-                        android:layout_marginTop="43dp"
+                        android:layout_marginTop="33dp"
                         android:layout_marginStart="20dp"/>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/setting_card_profile"
+                    android:id="@+id/password_change_card"
                     android:layout_width="335dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     app:cardElevation="10dp"
                     app:cardUseCompatPadding="false"
-                    app:layout_constraintEnd_toEndOf="@+id/extra_param_layout"
-                    app:layout_constraintStart_toStartOf="@+id/extra_param_layout"
-                    app:layout_constraintTop_toTopOf="@+id/extra_param_layout">
+                    app:layout_constraintEnd_toEndOf="@+id/layout"
+                    app:layout_constraintStart_toStartOf="@+id/layout"
+                    app:layout_constraintTop_toTopOf="@+id/layout">
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -169,23 +123,83 @@
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="25dp"
                         android:layout_marginStart="20dp"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/montserrat"
-                        android:text="@string/settings_text" />
+                        android:text="@string/edit_password" />
 
-                    <TextView
-                        android:id="@+id/settings_info"
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/about_us_card"
+                    android:layout_width="335dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="false"
+                    app:layout_constraintEnd_toEndOf="@+id/layout"
+                    app:layout_constraintStart_toStartOf="@+id/layout"
+                    app:layout_constraintTop_toTopOf="@+id/layout">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/settings_info"
-                        android:textSize="12sp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="301dp"
+                        android:layout_marginTop="23dp"
+                        android:src="@drawable/ic_button_next" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginStart="20dp"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/montserrat"
-                        android:layout_marginTop="43dp"
-                        android:layout_marginStart="20dp"/>
+                        android:text="@string/about_us" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/contacts_card"
+                    android:layout_width="335dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="false"
+                    app:layout_constraintEnd_toEndOf="@+id/layout"
+                    app:layout_constraintStart_toStartOf="@+id/layout"
+                    app:layout_constraintTop_toTopOf="@+id/layout">
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="301dp"
+                        android:layout_marginTop="23dp"
+                        android:src="@drawable/ic_button_next" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginStart="20dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/contacts" />
 
                 </androidx.cardview.widget.CardView>
 

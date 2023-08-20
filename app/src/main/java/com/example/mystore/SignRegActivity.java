@@ -35,7 +35,6 @@ public class SignRegActivity extends AppCompatActivity {
     static FirebaseDatabase database;
     static DatabaseReference users;
     String email;
-    MaterialEditText password;
     RelativeLayout root;
     ConstraintLayout home;
 
@@ -43,8 +42,6 @@ public class SignRegActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_reg);
-
-        //getSupportActionBar().hide();
 
         signIn = findViewById(R.id.btnSignIn);
         register = findViewById(R.id.btnRegister);
@@ -95,8 +92,6 @@ public class SignRegActivity extends AppCompatActivity {
         dialog.setView(reset_password_dialog);
 
         MaterialEditText edEmail = reset_password_dialog.findViewById(R.id.edResetPassword);
-//        Button send = reset_password_dialog.findViewById(R.id.buttonConfirmResetPassword);
-//        Button cancel = reset_password_dialog.findViewById(R.id.buttonCancelResetPassword);
 
         dialog.setNegativeButton(R.string.previous, new DialogInterface.OnClickListener() {
             @Override

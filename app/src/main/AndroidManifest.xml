@@ -16,12 +16,6 @@
             android:name=".SignRegActivity"
             android:exported="false" />
         <activity
-            android:name=".Contacts"
-            android:exported="false" />
-        <activity
-            android:name=".AboutUs"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

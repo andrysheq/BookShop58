@@ -25,58 +25,13 @@ import com.example.mystore.model.Book;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CatalogBooksFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CatalogBooksFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     RecyclerView booksRecycler;
     static CatalogBooksAdapter catalogBooksAdapter;
     ImageButton btnBack;
     ImageButton searchButton;
     TextView booksAmount;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CatalogBooksFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CatalogBooksFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CatalogBooksFragment newInstance(String param1, String param2) {
-        CatalogBooksFragment fragment = new CatalogBooksFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -111,9 +66,6 @@ public class CatalogBooksFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle bundle = new Bundle();
-//                bundle.putString("destinationName","CatalogBooks");
-//                Navigation.findNavController(view).navigate(R.id.action_catalog_books_fragment_to_search_fragment,bundle);
                 Navigation.findNavController(view).navigate(R.id.action_catalog_books_fragment_to_search_fragment);
             }
         });

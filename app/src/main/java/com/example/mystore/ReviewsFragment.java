@@ -62,32 +62,6 @@ public class ReviewsFragment extends Fragment {
 
         btnBack = view.findViewById(R.id.btn_back_reviews);
 
-//        DatabaseReference mDatabaseReviews = FirebaseDatabase.getInstance().getReference().child("Reviews");
-//        mDatabaseReviews.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (fullReviewsList.size() > 0) {
-//                    fullReviewsList.clear();
-//                }
-//                for(DataSnapshot ds : snapshot.getChildren()){
-//                    String grade = (String) ((HashMap<String, Object>) ds.getValue()).get("grade");
-//                    String text = (String) ((HashMap<String, Object>) ds.getValue()).get("description");
-//                    String header = (String) ((HashMap<String, Object>) ds.getValue()).get("header");
-//                    String date = (String) ((HashMap<String, Object>) ds.getValue()).get("date");
-//                    String user = (String) ((HashMap<String, Object>) ds.getValue()).get("user");
-//                    String idOfItem = (String) ((HashMap<String, Object>) ds.getValue()).get("itemId");
-//                    Review review = new Review(grade, text, user, date, idOfItem, header);
-//                    fullReviewsList.add(review);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

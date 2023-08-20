@@ -39,8 +39,6 @@ import java.util.Map;
 
 public class CartFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     public static TextView amountOfItems;
     public static TextView finalPrice;
     RecyclerView cartRecycler;

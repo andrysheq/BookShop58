@@ -52,6 +52,15 @@
         <action
             android:id="@+id/action_menu_profile_to_orders_fragment"
             app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_menu_profile_to_settings_fragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_menu_profile_to_about_us_fragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_menu_profile_to_contacts_fragment"
+            app:destination="@id/contactsFragment" />
     </fragment>
     <fragment
         android:id="@+id/book_page"
@@ -67,9 +76,6 @@
         android:name="com.example.mystore.CatalogBooksFragment"
         android:label="fragment_catalog_books"
         tools:layout="@layout/fragment_catalog_books" >
-        <action
-            android:id="@+id/action_catalog_books_fragment_to_menu_catalog"
-            app:destination="@id/menu_catalog" />
         <action
             android:id="@+id/action_catalog_books_fragment_to_book_page"
             app:destination="@id/book_page" />
@@ -100,8 +106,39 @@
         android:name="com.example.mystore.ReviewsFragment"
         android:label="fragment_reviews"
         tools:layout="@layout/fragment_reviews" >
+    </fragment>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.mystore.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.example.mystore.ContactsFragment"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.mystore.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
         <action
-            android:id="@+id/action_reviews_fragment_to_search_fragment"
-            app:destination="@id/searchFragment" />
+            android:id="@+id/action_settings_fragment_to_about_us_fragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_settings_fragment_to_contacts_fragment"
+            app:destination="@id/contactsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notSignProfileFragment"
+        android:name="com.example.mystore.NotSignProfileFragment"
+        android:label="fragment_not_sign_profile"
+        tools:layout="@layout/fragment_not_sign_profile" >
+        <action
+            android:id="@+id/action_not_sign_profile_fragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_not_sign_profile_fragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
     </fragment>
 </navigation>

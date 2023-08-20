@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Bookshop</string>
-    <string name="contacts_text">Контакты</string>
-    <string name="about_text">О нас</string>
+    <string name="contacts">Контакты</string>
+    <string name="about_us">О нас</string>
     <string name="main_menu_text">Главная</string>
     <string name="name_tag">Bookshop 58</string>
     <string name="category_icon">Icons</string>
@@ -15,11 +15,17 @@
     <string name="login_default">login</string>
     <string name="order_text">Мои заказы</string>
     <string name="order">Заказ</string>
+    <string name="login">Логин</string>
+    <string name="fish_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="edit_password">Сменить пароль</string>
     <string name="order_id_example">No238562312</string>
     <string name="date_example">20/03/2020</string>
     <string name="quantity">Количество товаров :</string>
     <string name="amount">Итого :</string>
     <string name="settings_text">Настройки</string>
+    <string name="information_text">Информация</string>
+    <string name="sign_in_profile_text">Войдите в профиль</string>
+    <string name="sign_profile_second_text">Начните покупки прямо сейчас</string>
     <string name="settings_info">Наши контакты, конфиденциальность</string>
     <string name="order_count_example">У вас 12 заказов</string>
     <string name="review_count_example">7 отзывов</string>
@@ -33,8 +39,8 @@
     <string name="description">Описание</string>
     <string name="description_example">Бессмертное, загадочное и остроумное «Евангелие от Сатаны» Михаила Булгакова. Роман, уникальный в российской литературе ХХ столетия. Трудно себе представить, какое влияние он оказал на мировую культуру. На основе «Мастера и Маргариты» снимались и продолжают сниматься фильмы и телесериалы, это произведение легло в основу оперы, симфонии, рок-оперы, его иллюстрировали самые знаменитые художники и фотографы. Достаточно перечислить лишь немногих создателей произведений, посвященных шедевру Булгакова и им вдохновленных: Анджей Вайда, Эннио Морриконе, Мик Джаггер, Дэвид Боуи. Чем же заворожила столь разных творческих личностей история о дьяволе и его свите, почтивших своим присутствием Москву 1930-х, о прокураторе Иудеи всаднике Понтии Пилате и нищем философе Иешуа Га-Ноцри, о талантливом и несчастном Мастере и его прекрасной и верной возлюбленной Маргарите?..</string>
     <string name="review_example">«Мастер и Маргарита» - незабываемое произведение, которое оставляет глубокий след в душе читателя. Этот роман великого Булгакова полон философической глубины, магии и острого социального осмысления. История Мастера и его возлюбленной, Маргариты, когда-то запретная, сейчас является классикой. Книга наполнена загадками, сюрреализмом и мудростью, которая продолжает влиять на мысли и чувства каждого, кто осмелился открыть ее страницы.</string>
-    <string name="about_us">Это текст для раздела (О нас) :)</string>
-    <string name="contacts">Это текст для раздела (Контакты) :)</string>
+    <string name="about_text">Это текст для раздела (О нас) :)</string>
+    <string name="contacts_text">Это текст для раздела (Контакты) :)</string>
     <string name="cart_add">Товар добавлен в корзину</string>
     <string name="cart_add_error">Этот товар уже есть в корзине</string>
     <string name="cart_amount_items">Количество товаров: </string>
