@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/menu_catalog"
-        android:icon="@drawable/ic_baseline_search_24"
+        android:icon="@drawable/ic_baseline_catalog_search_24"
         android:title="@string/catalog">
 
     </item>

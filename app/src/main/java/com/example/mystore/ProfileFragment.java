@@ -4,6 +4,7 @@ import static com.example.mystore.MainActivity.currentUser;
 import static com.example.mystore.MainActivity.orders;
 import static com.example.mystore.model.Cart.cart;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -52,6 +54,8 @@ public class ProfileFragment extends Fragment {
     LinearLayout layout;
     NestedScrollView scrollView;
     ProgressBar progressBar;
+    ImageView profilePhoto;
+    private FragmentActions listener;
 
     ImageButton signOrRegBtn;
     CardView aboutUsCard;
@@ -85,6 +89,7 @@ public class ProfileFragment extends Fragment {
             scrollView = view.findViewById(R.id.profileScrollView);
             progressBar = view.findViewById(R.id.profileProgressBar);
             settingsCard = view.findViewById(R.id.setting_card_profile);
+            profilePhoto = view.findViewById(R.id.profilePhoto);
 
             scrollView.setVisibility(View.INVISIBLE);
             progressBar.setVisibility(View.VISIBLE);
@@ -154,6 +159,7 @@ public class ProfileFragment extends Fragment {
                     FirebaseAuth.getInstance().signOut();
                     cart.clear();
                     startActivity(new Intent(getContext(),SignRegActivity.class));
+                    listener.finishActivity();
                 }
             });
 
@@ -286,5 +292,11 @@ public class ProfileFragment extends Fragment {
 //                Navigation.findNavController(view).navigate(R.id.action_menu_profile_to_settings_fragment);
 //            }
 //        });
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        listener = (FragmentActions)context;
     }
 }

@@ -75,7 +75,7 @@ public class ReviewsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showCreateReview();
-                Navigation.findNavController(view).popBackStack();
+                //Navigation.findNavController(view).popBackStack();
             }
         });
 
@@ -144,7 +144,7 @@ public class ReviewsFragment extends Fragment {
                 }
                 if (FirebaseAuth.getInstance().getCurrentUser() == null) {
                     //startActivity(new Intent(getContext(), SignRegActivity.class));
-                    Toast.makeText(getContext(), R.string.not_sign_error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.unsigned_review_error, Toast.LENGTH_LONG).show();
                 }else {
                     //Order newOrder = new Order(String.valueOf(orders.size()+1),String.valueOf(cartAdapter.getItemsAmount()), LocalDate.now().toString(), String.valueOf(cartAdapter.getItemsPrice()),"Принят");
                     Map<String, Object> map = new HashMap<String, Object>();
@@ -157,6 +157,7 @@ public class ReviewsFragment extends Fragment {
                     map.put("user", currentUser.getLogin());
                     FirebaseDatabase.getInstance().getReference().child("Reviews").child(String.valueOf(fullReviewsList.size()+1).toString()).updateChildren(map);
                     //Toast.makeText(getContext(), R.string.buy_success, Toast.LENGTH_LONG).show();
+                    Navigation.findNavController(getView()).popBackStack();
                 }
             }
         });

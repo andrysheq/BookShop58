@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentActions {
 
     private ActivityMainBinding binding;
     static ArrayList<Book> books = new ArrayList<>();
@@ -411,5 +411,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    public void finishActivity() {
+        this.finish();
     }
 }

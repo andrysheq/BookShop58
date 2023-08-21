@@ -62,6 +62,7 @@
     <string name="previous">Назад</string>
     <string name="next">Далее</string>
     <string name="email_error">Заполните поле "email"</string>
+    <string name="unsigned_review_error">Необходимо авторизоваться, чтобы оставлять отзывы</string>
     <string name="header_error">Заголовок не может быть пустым</string>
     <string name="grade_error">Поставьте оценку</string>
     <string name="description_error">Опишите товар</string>
