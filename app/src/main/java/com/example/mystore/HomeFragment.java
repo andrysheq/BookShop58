@@ -75,6 +75,38 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        DatabaseReference mDatabaseBooks = FirebaseDatabase.getInstance().getReference().child("Books");
+        mDatabaseBooks.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    //вызвать окно ошибки
+                }
+                else {
+                    if (books.size() > 0) {
+                        books.clear();
+                    }
+                    if (fullBooksList.size() > 0) {
+                        fullBooksList.clear();
+                    }
+                    for(DataSnapshot ds : task.getResult().getChildren()){
+                        String title = (String) ((HashMap<String, Object>) ds.getValue()).get("title");
+                        Long id = (Long) ((HashMap<String, Object>) ds.getValue()).get("id");
+                        String genre = (String) ((HashMap<String, Object>) ds.getValue()).get("genre");
+                        Long price = (Long) ((HashMap<String, Object>) ds.getValue()).get("price");
+                        String writer = (String) ((HashMap<String, Object>) ds.getValue()).get("writer");
+                        String description = (String) ((HashMap<String, Object>) ds.getValue()).get("description");
+                        Long category = (Long) ((HashMap<String, Object>) ds.getValue()).get("category");
+                        Long ageLimit = (Long) ((HashMap<String, Object>) ds.getValue()).get("ageLimit");
+                        String image = (String) ((HashMap<String, Object>) ds.getValue()).get("img");
+                        Book book = new Book(Math.toIntExact(id), Math.toIntExact(ageLimit), Math.toIntExact(price), genre, title, image, writer, Math.toIntExact(category),description);
+                        books.add(book);
+                    }
+                    fullBooksList.addAll(books);
+                }
+            }
+        });
+
         DatabaseReference mDatabaseNovelties = FirebaseDatabase.getInstance().getReference().child("Novelties");
         mDatabaseNovelties.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -106,38 +138,6 @@ public class HomeFragment extends Fragment {
                     noveltyAdapter.notifyDataSetChanged();
                     progressBar.setVisibility(View.INVISIBLE);
                     home.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-        DatabaseReference mDatabaseBooks = FirebaseDatabase.getInstance().getReference().child("Books");
-        mDatabaseBooks.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    //вызвать окно ошибки
-                }
-                else {
-                    if (books.size() > 0) {
-                        books.clear();
-                    }
-                    if (fullBooksList.size() > 0) {
-                        fullBooksList.clear();
-                    }
-                    for(DataSnapshot ds : task.getResult().getChildren()){
-                        String title = (String) ((HashMap<String, Object>) ds.getValue()).get("title");
-                        Long id = (Long) ((HashMap<String, Object>) ds.getValue()).get("id");
-                        String genre = (String) ((HashMap<String, Object>) ds.getValue()).get("genre");
-                        Long price = (Long) ((HashMap<String, Object>) ds.getValue()).get("price");
-                        String writer = (String) ((HashMap<String, Object>) ds.getValue()).get("writer");
-                        String description = (String) ((HashMap<String, Object>) ds.getValue()).get("description");
-                        Long category = (Long) ((HashMap<String, Object>) ds.getValue()).get("category");
-                        Long ageLimit = (Long) ((HashMap<String, Object>) ds.getValue()).get("ageLimit");
-                        String image = (String) ((HashMap<String, Object>) ds.getValue()).get("img");
-                        Book book = new Book(Math.toIntExact(id), Math.toIntExact(ageLimit), Math.toIntExact(price), genre, title, image, writer, Math.toIntExact(category),description);
-                        books.add(book);
-                    }
-                    fullBooksList.addAll(books);
                 }
             }
         });

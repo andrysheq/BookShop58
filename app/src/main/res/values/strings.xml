@@ -80,4 +80,5 @@
     <string name="not_sign_error">Необходимо авторизоваться, чтобы совершать покупки</string>
     <string name="buy_success">Активность покупки удачно сработала</string>
     <string name="search">Поиск</string>
+    <string name="quit">Выйти</string>
 </resources>

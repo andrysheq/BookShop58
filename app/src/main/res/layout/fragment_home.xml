@@ -53,7 +53,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:indeterminate="true"
-        android:indeterminateTint="@color/main"/>
+        android:indeterminateTint="@color/secondary"/>
 
     <ImageButton
         android:id="@+id/search_home"
