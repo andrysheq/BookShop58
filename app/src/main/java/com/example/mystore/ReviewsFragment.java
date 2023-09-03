@@ -22,8 +22,12 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mystore.adapter.ReviewAdapter;
@@ -35,6 +39,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,8 +79,11 @@ public class ReviewsFragment extends Fragment {
         createReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCreateReview();
-                //Navigation.findNavController(view).popBackStack();
+                if(FirebaseAuth.getInstance().getCurrentUser() == null){
+                    Toast.makeText(getContext(), R.string.unsigned_review_error, Toast.LENGTH_LONG).show();
+                }else {
+                    showCreateReview();
+                }
             }
         });
 
@@ -111,9 +119,32 @@ public class ReviewsFragment extends Fragment {
         View review_window = inflater.inflate(R.layout.create_review_dialog,null);
         dialog.setView(review_window);
 
+        String[] countries = { "1", "2", "3", "4", "5"};
+        Spinner spinner = review_window.findViewById(R.id.gradeSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, countries);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+
+        spinner.setSelection(4);
+
+//        AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//                // Получаем выбранный объект
+//                String item = (String)parent.getItemAtPosition(position);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//            }
+//        };
+//        spinner.setOnItemSelectedListener(itemSelectedListener);
+
         EditText header = review_window.findViewById(R.id.headerField);
         EditText description = review_window.findViewById(R.id.descriptionField);
-        EditText grade = review_window.findViewById(R.id.gradeField);
+        //EditText grade = review_window.findViewById(R.id.gradeField);
 
 
         dialog.setNegativeButton(R.string.previous, new DialogInterface.OnClickListener() {
@@ -129,36 +160,32 @@ public class ReviewsFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 if(TextUtils.isEmpty(header.getText().toString())){
                     //hideKeyboard();
-                    //Toast.makeText(getContext(),R.string.header_error,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),R.string.header_error,Toast.LENGTH_LONG).show();
                     return;
                 }
                 if(TextUtils.isEmpty(description.getText().toString())){
                     //hideKeyboard();
-                    //Toast.makeText(getContext(),R.string.description_error,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),R.string.description_error,Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(TextUtils.isEmpty(grade.getText().toString())) {
+                String grade = spinner.getSelectedItem().toString();
+                if(TextUtils.isEmpty(grade)) {
                     //hideKeyboard();
-                    //Toast.makeText(getContext(), R.string.grade_error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.grade_error, Toast.LENGTH_LONG).show();
                     return;
                 }
-                if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-                    //startActivity(new Intent(getContext(), SignRegActivity.class));
-                    Toast.makeText(getContext(), R.string.unsigned_review_error, Toast.LENGTH_LONG).show();
-                }else {
-                    //Order newOrder = new Order(String.valueOf(orders.size()+1),String.valueOf(cartAdapter.getItemsAmount()), LocalDate.now().toString(), String.valueOf(cartAdapter.getItemsPrice()),"Принят");
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    map.put("description", description.getText().toString());
-                    map.put("header", header.getText().toString());
-                    map.put("grade", grade.getText().toString());
-                    map.put("date", LocalDate.now().toString());
-                    String id = getArguments().getString("bookId");
-                    map.put("itemId", id);
-                    map.put("user", currentUser.getLogin());
-                    FirebaseDatabase.getInstance().getReference().child("Reviews").child(String.valueOf(fullReviewsList.size()+1).toString()).updateChildren(map);
-                    //Toast.makeText(getContext(), R.string.buy_success, Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(getView()).popBackStack();
-                }
+                //Order newOrder = new Order(String.valueOf(orders.size()+1),String.valueOf(cartAdapter.getItemsAmount()), LocalDate.now().toString(), String.valueOf(cartAdapter.getItemsPrice()),"Принят");
+                Map<String, Object> map = new HashMap<String, Object>();
+                map.put("description", description.getText().toString());
+                map.put("header", header.getText().toString());
+                map.put("grade", grade);
+                map.put("date", LocalDate.now().toString());
+                String id = getArguments().getString("bookId");
+                map.put("itemId", id);
+                map.put("user", currentUser.getLogin());
+                FirebaseDatabase.getInstance().getReference().child("Reviews").child(String.valueOf(fullReviewsList.size()+1).toString()).updateChildren(map);
+                //Toast.makeText(getContext(), R.string.buy_success, Toast.LENGTH_LONG).show();
+                Navigation.findNavController(getView()).popBackStack();
             }
         });
 
@@ -173,7 +200,8 @@ public class ReviewsFragment extends Fragment {
             k.getAndSet(new Double((double) (k.get() + 1)));
         });
         if(k.get()!=0) {
-            return String.valueOf(s.get() / k.get());
+            double result = s.get() / k.get();
+            return String.format("%.2f",result);
         }else{
             return null;
         }

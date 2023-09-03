@@ -47,20 +47,23 @@
 
         </EditText>
 
-        <EditText
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/hint_gray"
+            android:text="@string/grade_hint"
+            android:textSize="16sp">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/gradeSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/gradeField"
+            android:layout_marginTop="10dp"
             android:hint="@string/grade_hint"
-            android:layout_marginTop="20dp"
-            android:inputType="textPassword"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:met_floatingLabel="highlight"
-            app:met_singleLineEllipsis="true">
-
-        </EditText>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 

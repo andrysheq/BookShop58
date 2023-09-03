@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_margin="20dp">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/emailField"
@@ -20,27 +20,26 @@
             android:inputType="textEmailAddress"
             android:text=""
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="16sp"
             app:met_floatingLabel="highlight"
             app:met_singleLineEllipsis="true">
 
-        </com.rengwuxian.materialedittext.MaterialEditText>
+        </EditText>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/passwordField"
             android:hint="@string/password_sign_hint"
+            android:layout_marginTop="20dp"
             android:inputType="textPassword"
             android:text=""
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="16sp"
             app:met_floatingLabel="highlight"
             app:met_singleLineEllipsis="true">
 
-        </com.rengwuxian.materialedittext.MaterialEditText>
+        </EditText>
 
     </LinearLayout>
 

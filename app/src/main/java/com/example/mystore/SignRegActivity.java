@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -137,8 +138,8 @@ public class SignRegActivity extends AppCompatActivity {
     }
 
     private void showSignInWindow() {
-        MaterialEditText email = findViewById(R.id.emailField);
-        MaterialEditText password = findViewById(R.id.passwordField);
+        EditText email = findViewById(R.id.emailField);
+        EditText password = findViewById(R.id.passwordField);
 
         if(TextUtils.isEmpty(email.getText().toString())){
             hideKeyboard();
@@ -180,10 +181,10 @@ public class SignRegActivity extends AppCompatActivity {
         View register_window = inflater.inflate(R.layout.register_window,null);
         dialog.setView(register_window);
 
-        MaterialEditText edEmail = register_window.findViewById(R.id.emailField);
-        MaterialEditText password = register_window.findViewById(R.id.passwordField);
-        MaterialEditText login = register_window.findViewById(R.id.loginField);
-        MaterialEditText phoneNumber = register_window.findViewById(R.id.phoneNumberField);
+        EditText edEmail = register_window.findViewById(R.id.emailField);
+        EditText password = register_window.findViewById(R.id.passwordField);
+        EditText login = register_window.findViewById(R.id.loginField);
+        EditText phoneNumber = register_window.findViewById(R.id.phoneNumberField);
 
         dialog.setNegativeButton(R.string.previous, new DialogInterface.OnClickListener() {
             @Override

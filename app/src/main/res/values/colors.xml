@@ -12,5 +12,6 @@
     <color name="secondary">#ada7cb</color>
     <color name="novelty_back">#F1F1F1</color>
     <color name="gray">#c8c8c8</color>
+    <color name="hint_gray">#A9A9A9</color>
     <color name="bright_gray">#F3F3F3</color>
 </resources>
